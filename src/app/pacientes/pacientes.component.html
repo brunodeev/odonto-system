@@ -3,11 +3,17 @@
     <button class="btn btn-primary" type="submit">Search</button>
 </div>
 
-<div class="card" style="width: 15rem">
-    <a href="">
-        <div class="card-body">
-            <h5 class="card-title">Bruna Nathália Gonçalves da Silva</h5>
-            <p class="card-text">Prótese</p>
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="card" style="width: 16rem" *ngFor="let paciente of pacientes">
+            <a [routerLink]="['/pacientes', paciente.id]">
+                <div class="card-body">
+                    <h5 class="card-title">{{ paciente.nome }}</h5>
+                    <p class="card-text">{{ paciente.servico }}</p>
+                </div>
+            </a>
         </div>
-    </a>
+    </div>
 </div>
+
+
