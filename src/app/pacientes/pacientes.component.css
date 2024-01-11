@@ -12,5 +12,21 @@
 
 .row {
     margin-left: 0px;
+    margin-right: 0px;
     gap: 10px;
+}
+
+.card {
+    box-shadow: 2px 5px 7px #681c3c2f;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card-title {
+    max-height: 1.55rem;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

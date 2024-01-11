@@ -33,7 +33,7 @@ export class PacienteService {
     },
     {
       id: 6,
-      nome: 'Rafael José',
+      nome: 'Bruna Nathália Gonçalves da Silva Aguiar',
       servico: 'Aparelho'
     },
     {
