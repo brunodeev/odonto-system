@@ -28,12 +28,13 @@ export class PacientesComponent {
 
   ngOnInit() {
     this.pacienteService.getPacientes().subscribe((res) => this.pacientes = res);
-    this.pacientesFiltrados = this.pacientes;
+    this.pacienteService.getPacientes().subscribe((res) => this.pacientesFiltrados = res);
   }
   
 
   filtrarPorNome() {
-    if(this.pacientes!.length == 0 || this.textoFiltro === '') {
+    this.pacientesFiltrados = this.pacientes;
+    if(this.textoFiltro === '') {
       return this.pacientes;
     } else {
       let filtroMinusculo = this.textoFiltro.toLowerCase();
