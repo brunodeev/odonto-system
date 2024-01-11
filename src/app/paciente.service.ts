@@ -52,6 +52,18 @@ export class PacienteService {
     return this.pacientes;
   }
 
+  getPacienteFiltrado(filtro: String) {
+    this.pacientes!.filter((p: any) => {
+      for(let i = 0; i < this.pacientes.length; i++) {
+        let resultado = this.pacientes[i].nome;
+        if(resultado == filtro) {
+          return p;
+        }
+      }
+      return null;
+    })
+  }
+
   getPaciente(id: number) {
     for(let i = 0; i < this.pacientes.length; i++) {
       let paciente = this.pacientes[i];

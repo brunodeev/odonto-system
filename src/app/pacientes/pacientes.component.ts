@@ -19,13 +19,10 @@ export class PacientesComponent {
     this.pacientes = this.pacienteService.getPacientes();
   }
 
-  getPacienteFiltrado() {
-    return this.pacientes!.filter((p: string) => {
-      if(p.toLowerCase().indexOf(this.filtro!.toLowerCase()) >= 0) {
-        return true;
-      }
-      return false;
-    })
+  getFiltro() {
+    console.log(this.pacientes!.filter((p) => p.nome == this.filtro));
+    this.pacientes = this.pacientes!.filter((p) => p.nome == this.filtro);
   }
+
 
 }
