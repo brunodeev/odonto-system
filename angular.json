@@ -67,7 +67,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "odonto-system:build:production"
+              "buildTarget": "odonto-system:build:production",
+              "proxyConfig": "src/proxy.config.json"
             },
             "development": {
               "buildTarget": "odonto-system:build:development"

@@ -1,17 +1,17 @@
 <div class="search-bar">
-    <input class="form-control me-2" placeholder="Ex.: Bruna Nathália" [(ngModel)]="filtro">
-    <button class="btn btn-primary" (click)="getFiltro()">Buscar</button>
+    <input class="form-control me-2" placeholder="Ex.: Bruna Nathália" [(ngModel)]="textoFiltro"/>
+    <button class="btn btn-primary">Buscar</button>
 </div>
 
 <div class="container-fluid">
     <div class="row" >
         <div class="card" style="width: 20rem; height: 6rem;"
-             *ngFor="let paciente of pacientes"
+             *ngFor="let paciente of pacientesFiltrados"
              [routerLink]="['/pacientes', paciente.id]">
             <a>
                 <div class="card-body">
                     <h5 class="card-title">{{ paciente.nome }}</h5>
-                    <p class="card-text">{{ paciente.servico }}</p>
+                    <p class="card-text">{{ paciente.email }}</p>
                 </div>
             </a>
         </div>

@@ -1,79 +1,55 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Paciente } from './paciente/paciente';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacienteService {
 
-  pacientes: any[] = [
-    {
-      id: 1,
-      nome: 'Bruna Nathália',
-      servico: 'Prótese'
-    },
-    {
-      id: 2,
-      nome: 'Rafael José',
-      servico: 'Aparelho'
-    },
-    {
-      id: 3,
-      nome: 'Ana Júlia Pereira',
-      servico: 'Cirurgia'
-    },
-    {
-      id: 4,
-      nome: 'Juliano Gonçalves',
-      servico: 'Avaliação'
-    },
-    {
-      id: 5,
-      nome: 'Bruna Nathália',
-      servico: 'Prótese'
-    },
-    {
-      id: 6,
-      nome: 'Bruna Nathália Gonçalves da Silva Aguiar',
-      servico: 'Aparelho'
-    },
-    {
-      id: 7,
-      nome: 'Ana Júlia Pereira',
-      servico: 'Cirurgia'
-    },
-    {
-      id: 8,
-      nome: 'Juliano Gonçalves',
-      servico: 'Avaliação'
-    }
-  ];
+  private API = '/api/cliente';
+  // {
+  //   id: 1,
+  //   nome: 'Bruno César',
+  //   telefone: "999999999",
+  //   endereco: "QA 0 MR 12 07 OESTE",
+  //   email: "bruno@gmail.com",
+  // },
+
+  constructor(private http: HttpClient) { }
+
 
   getPacientes() {
-    return this.pacientes;
+    return this.http.get<Paciente[]>(this.API);
   }
 
-  getPacienteFiltrado(filtro: String) {
-    this.pacientes!.filter((p: any) => {
-      for(let i = 0; i < this.pacientes.length; i++) {
-        let resultado = this.pacientes[i].nome;
-        if(resultado == filtro) {
-          return p;
-        }
-      }
-      return null;
-    })
-  }
+  // getPacientes() {
+  //   return this.pacientes;
+  // }
 
-  getPaciente(id: number) {
-    for(let i = 0; i < this.pacientes.length; i++) {
-      let paciente = this.pacientes[i];
+  // getPacienteFiltrado(filtro: String) {
+  //   this.pacientes!.filter((p: any) => {
+  //     for(let i = 0; i < this.pacientes.length; i++) {
+  //       let resultado = this.pacientes[i].nome;
+  //       if(resultado == filtro) {
+  //         return p;
+  //       }
+  //     }
+  //     return null;
+  //   })
+  // }
+
+  // getPaciente(id: number) {
+  //   for(let i = 0; i < this.pacientes.length; i++) {
+  //     let paciente = this.pacientes[i];
       
-      if(id == paciente.id) {
-        return paciente;
-      }
-    }
-    return null;
-  }
+  //     if(id == paciente.id) {
+  //       return paciente;
+  //     }
+  //   }
+  //   return null;
+  // }
 
-  constructor() { }
+  
 }

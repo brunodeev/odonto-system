@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { PacienteService } from '../paciente.service';
+import { PacienteService } from '../../paciente.service';
 
 @Component({
   selector: 'app-paciente-detalhes',
@@ -24,7 +24,7 @@ export class PacienteDetalhesComponent {
     this.subscription = this.route.params.subscribe((params: any) => {
       this.id = params['id'];
 
-      this.paciente = this.pacienteService.getPaciente(this.id);
+      //this.paciente = this.pacienteService.getPaciente(this.id);
 
       if(this.paciente == null) {
         this.router.navigate(['/pacientes']);
