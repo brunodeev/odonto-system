@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { PacienteService } from '../../paciente.service';
+import { PacienteService } from '../../services/paciente.service';
 import { Paciente } from '../paciente';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pacientes',
@@ -23,14 +24,14 @@ export class PacientesComponent {
     this.pacientesFiltrados = this.filtrarPorNome();
   }
 
-
-  constructor(private pacienteService: PacienteService) {}
+  constructor(
+    private pacienteService: PacienteService,
+    private router: Router) {}
 
   ngOnInit() {
     this.pacienteService.getPacientes().subscribe((res) => this.pacientes = res);
     this.pacienteService.getPacientes().subscribe((res) => this.pacientesFiltrados = res);
   }
-  
 
   filtrarPorNome() {
     this.pacientesFiltrados = this.pacientes;

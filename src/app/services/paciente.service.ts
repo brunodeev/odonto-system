@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Paciente } from './paciente/paciente';
+import { Paciente } from '../paciente/paciente';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -19,6 +19,10 @@ export class PacienteService {
 
   getPaciente(id: number) {
     return this.http.get<Paciente>(`${this.API}/${id}`)
+  }
+
+  newPaciente(paciente: Paciente) {
+    this.http.post<Paciente>(this.API, paciente);
   }
   
 }
