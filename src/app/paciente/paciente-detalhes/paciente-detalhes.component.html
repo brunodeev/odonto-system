@@ -1,1 +1,27 @@
-<p>{{ paciente!.nome }}</p>
+
+<div class="container">
+    <div class="card mb-3">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8"  style="max-width: fit-content;">
+            <div class="card-body"  style="max-width: fit-content;">
+              <h5 class="card-title">{{ paciente?.nome }}</h5>
+              <p class="card-text">{{paciente?.telefone}}</p>
+              <p class="card-text">{{paciente?.email}}</p>
+              <p class="card-text">{{paciente?.endereco}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="container-sm">
+        <h4>Serviços</h4>
+    </div>
+    <div class="card border-primary mb-3" style="max-width: 540px;">
+        <div class="card-body text-primary" *ngFor="let servico of paciente?.servicos">
+          <h5 class="card-title">{{ servico }}</h5>
+        </div>
+      </div>
+</div>
