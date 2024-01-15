@@ -1,25 +1,21 @@
 <div class="container-sm">
-    <form class="row g-3">
+    <form [formGroup]="form" class="row g-3">
         <div class="col-6">
           <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" [(ngModel)]="paciente!.nome">
+          <input type="text" formControlName="nome" class="form-control" id="nome">
         </div>
         <div class="col-6">
           <label for="tel" class="form-label">Telefone</label>
-          <input type="tel" class="form-control" id="tel" [(ngModel)]="paciente!.telefone">
+          <input type="tel" formControlName="telefone" class="form-control" id="tel">
         </div>
         <div class="col-6">
           <label for="endereco" class="form-label">Endereço</label>
-          <input type="text" class="form-control" id="endereco" [(ngModel)]="paciente!.endereco">
+          <input type="text" formControlName="endereco" class="form-control" id="endereco">
         </div>
         <div class="col-6">
           <label for="email" class="form-label">Email</label>
-          <input type="text" class="form-control" id="email" [(ngModel)]="paciente!.email">
+          <input type="text" formControlName="email" class="form-control" id="email">
         </div>
-        <div class="col-6">
-          <label for="foto" class="form-label">Imagem</label>
-          <input type="file" class="form-control" id="foto" [(ngModel)]="paciente!.urlImage">
-        </div>
-        <button class="btn btn-primary" style="margin-left: 8px" (click)="addNovoPaciente()">Adicionar</button>
+        <button class="btn btn-primary" style="margin-left: 8px" type="submit">Adicionar</button>
       </form>
 </div>

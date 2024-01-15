@@ -4,15 +4,10 @@
 </div>
 <div class="container-fluid">
     <div class="row" >
-        <div class="card" style="width: 20rem; height: 6rem;"
+        <div class="card" style=" height: 3rem;"
              *ngFor="let paciente of pacientesFiltrados"
              [routerLink]="['/pacientes', paciente.id]">
-            <a>
-                <div class="card-body">
-                    <h5 class="card-title">{{ paciente.nome }}</h5>
-                    <p class="card-text">{{ paciente.email }}</p>
-                </div>
-            </a>
+            <p>{{ paciente.nome }}</p>
         </div>
     </div>
 </div>

@@ -35,10 +35,10 @@ export class PacienteDetalhesComponent {
       //   this.router.navigate(['/pacientes']);
       // }
     })
-  }
+  };
 
   findById(id: number) {
-    this.pacienteService.getPaciente(id).subscribe((res) => {
+    this.pacienteService.getPaciente(id).subscribe((res: Paciente) => {
       this.paciente! = res;
     })
   }

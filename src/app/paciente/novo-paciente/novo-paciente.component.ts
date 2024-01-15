@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PacienteService } from '../../services/paciente.service';
 import { Paciente } from '../paciente';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-novo-paciente',
@@ -11,26 +12,26 @@ import { Router } from '@angular/router';
 export class NovoPacienteComponent {
 
   paciente?: Paciente;
-  nome?: string;
-  telefone?: string;
-  endereco?: string;
-  email?: string;
-  urlImage?: string;
+  form = this.formBuilder.group({
+    nome: [''],
+    telefone: [''],
+    endereco: [''],
+    email: [''],
+  });
 
   constructor(
     private pacienteService: PacienteService,
-    private router: Router) {}
+    private formBuilder: FormBuilder) {}
 
-  addNovoPaciente() {
-    this.paciente!.nome = this.nome!;
-    this.paciente!.telefone = this.telefone!;
-    this.paciente!.endereco = this.endereco!;
-    this.paciente!.email = this.email!;
-    this.paciente!.urlImage = this.urlImage!;
-    if(this.paciente != undefined) {
-      this.pacienteService.newPaciente(this.paciente!);
-      this.router.navigate(['pacientes']);
-    }
-    
+  ngOnInit() {}
+  
+  onSubmit() {
+    const pacienteData: Partial<Paciente> = {
+      nome: this.form.value.nome as string,
+      telefone: this.form.value.telefone as string,
+      endereco: this.form.value.endereco as string,
+      email: this.form.value.email as string,
+    };
+    this.pacienteService.newPaciente(pacienteData).subscribe(result => console.log(result));
   }
 }

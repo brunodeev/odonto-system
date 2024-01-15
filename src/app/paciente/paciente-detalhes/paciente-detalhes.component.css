@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
 
 h4 {
-    margin: 0;
+    margin-top: 30px;
+    margin-bottom: 10px;
     color: #681c3c;
 }
 
@@ -8,10 +14,35 @@ img {
     max-width: 200px;
 }
 
-.card-mb-3 {
-    padding: 0;
-    margin: 0;
+@media only screen and (max-width: 768px) {
+    #cardPaciente {
+        min-width: 350px;
+    }
+  }
+
+@media only screen and (min-width: 768px) {
+    #imagePaciente {
+        margin: 0;
+        aspect-ratio: 2/2;
+        object-fit: cover;
+        min-width: 80px;
+    }
+
+    #cardPaciente {
+        width: 500px;
+    }
+
 }
+
+@media only screen and (max-width: 768px) {
+    #imagePaciente {
+        margin: 0;
+        aspect-ratio: 2/2;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}
+
 
 .container {
     display: flex;
@@ -28,4 +59,19 @@ img {
 
 .card-text {
     margin: 0;
+}
+
+#card-border {
+    width: 500px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#card-border p {
+    color: #681c3c;
+    margin: 10px;
+    font-weight: 600;
 }
