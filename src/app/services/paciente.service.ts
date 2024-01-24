@@ -7,7 +7,7 @@ import { Paciente } from '../paciente/paciente';
 })
 export class PacienteService {
 
-  private API = '/api/cliente';
+  private API = '/api/clientes';
 
   constructor(private http: HttpClient) { }
 
