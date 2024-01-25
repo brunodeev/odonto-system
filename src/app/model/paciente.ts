@@ -1,3 +1,4 @@
+import { Consulta } from "./consulta";
 
 export class Paciente {
     id!: number;
@@ -5,4 +6,5 @@ export class Paciente {
     telefone!: string;
     endereco!: string;
     email!: string;
+    consultas?: Consulta[];
 }

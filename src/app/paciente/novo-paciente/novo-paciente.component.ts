@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { PacienteService } from '../../services/paciente.service';
-import { Paciente } from '../paciente';
+import { Paciente } from '../../model/paciente';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { Consulta } from '../../model/consulta';
 
 @Component({
   selector: 'app-novo-paciente',
@@ -17,6 +18,7 @@ export class NovoPacienteComponent {
     telefone: [''],
     endereco: [''],
     email: [''],
+    servico: [''],
   });
 
   constructor(
@@ -31,6 +33,7 @@ export class NovoPacienteComponent {
       telefone: this.form.value.telefone as string,
       endereco: this.form.value.endereco as string,
       email: this.form.value.email as string,
+      consultas: this.form.value.servico as Consulta[]
     };
     this.pacienteService.newPaciente(pacienteData).subscribe(result => console.log(result));
   }

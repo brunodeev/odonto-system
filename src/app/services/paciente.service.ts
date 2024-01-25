@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Paciente } from '../paciente/paciente';
+import { Paciente } from '../model/paciente';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacienteService {
 
-  private API = '/api/clientes';
+  private API = '/api/api/clientes';
 
   constructor(private http: HttpClient) { }
 

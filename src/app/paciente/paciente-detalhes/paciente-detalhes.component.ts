@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { PacienteService } from '../../services/paciente.service';
-import { Paciente } from '../paciente';
+import { Paciente } from '../../model/paciente';
 
 @Component({
   selector: 'app-paciente-detalhes',
@@ -17,8 +17,7 @@ export class PacienteDetalhesComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private pacienteService: PacienteService
+    private pacienteService: PacienteService,
   ) {}
 
   ngOnInit() {
@@ -26,14 +25,6 @@ export class PacienteDetalhesComponent {
       this.id = params['id'];
 
       this.findById(this.id);
-
-      // this.paciente = this.pacienteService.getPaciente(this.id);
-
-      // console.log(this.paciente)
-
-      // if(this.paciente == null) {
-      //   this.router.navigate(['/pacientes']);
-      // }
     })
   };
 
