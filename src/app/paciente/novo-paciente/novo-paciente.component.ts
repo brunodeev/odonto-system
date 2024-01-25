@@ -33,7 +33,6 @@ export class NovoPacienteComponent {
       telefone: this.form.value.telefone as string,
       endereco: this.form.value.endereco as string,
       email: this.form.value.email as string,
-      consultas: this.form.value.servico as Consulta[]
     };
     this.pacienteService.newPaciente(pacienteData).subscribe(result => console.log(result));
   }

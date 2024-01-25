@@ -1,4 +1,4 @@
-export class Consulta {
-    id!: string;
-    servico!: string;
+export interface Consulta {
+    id: string;
+    servico: string;
 }
