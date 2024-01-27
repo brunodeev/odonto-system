@@ -18,6 +18,7 @@
     </div>
     <div class="card border-primary" id="card-border" *ngFor="let consulta of paciente?.consultas">
         <p>{{ consulta.servico }}</p>
+        <p>{{ consulta.dataHora }}</p>
     </div>
     <button class="btn btn-primary">Nova consulta</button>
 </div>

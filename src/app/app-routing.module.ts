@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PacientesComponent } from './paciente/pacientes/pacientes.component';
 import { PacienteDetalhesComponent } from './paciente/paciente-detalhes/paciente-detalhes.component';
 import { NovoPacienteComponent } from './paciente/novo-paciente/novo-paciente.component';
+import { PacienteResolver } from './guards/paciente.resolver';
 
 const routes: Routes = [
   {path: 'pacientes', component: PacientesComponent},
-  {path: 'pacientes/novo', component: NovoPacienteComponent},
+  {path: 'pacientes/novo', component: NovoPacienteComponent, resolve: { paciente: PacienteResolver }},
   {path: 'pacientes/:id', component: PacienteDetalhesComponent},
 ];
 

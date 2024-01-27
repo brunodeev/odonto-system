@@ -6,5 +6,5 @@ export interface Paciente {
     telefone: string;
     endereco: string;
     email: string;
-    consultas: Consulta[];
+    consultas?: Consulta[];
 }
