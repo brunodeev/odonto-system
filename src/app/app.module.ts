@@ -8,15 +8,13 @@ import { PacienteDetalhesComponent } from './paciente/paciente-detalhes/paciente
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NovoPacienteComponent } from './paciente/novo-paciente/novo-paciente.component';
-import { EditarPacienteComponent } from './paciente/editar-paciente/editar-paciente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PacientesComponent,
     PacienteDetalhesComponent,
-    NovoPacienteComponent,
-    EditarPacienteComponent
+    NovoPacienteComponent
   ],
   imports: [
     BrowserModule,

@@ -28,10 +28,8 @@ export class NovoPacienteComponent {
       telefone: [paciente.telefone],
       endereco: [paciente.endereco],
       email: [paciente.email],
-      consultas: this.formBuilder.array([])
+      consultas: this.formBuilder.array(this.obterConsultas(paciente))
     });
-
-    this.adicionarNovaConsulta();
   }
 
   private obterConsultas(paciente: Paciente) {
@@ -69,6 +67,7 @@ export class NovoPacienteComponent {
   onSubmit() {
     if (this.form.valid) {
       const pacienteData: Partial<Paciente> = {
+        id: this.form.value.id as string,
         nome: this.form.value.nome as string,
         telefone: this.form.value.telefone as string,
         endereco: this.form.value.endereco as string,
@@ -82,9 +81,9 @@ export class NovoPacienteComponent {
         })
       };
 
+      this.pacienteService.salvar(pacienteData).subscribe();
+      
       this.router.navigate(['/pacientes']);
-  
-      this.pacienteService.newPaciente(pacienteData).subscribe(result => console.log(result));
     }
   }
 }

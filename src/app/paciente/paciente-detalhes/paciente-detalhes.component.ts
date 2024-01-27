@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PacienteService } from '../../services/paciente.service';
 import { Paciente } from '../../model/paciente';
@@ -17,6 +17,7 @@ export class PacienteDetalhesComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private pacienteService: PacienteService,
   ) {}
 
@@ -32,6 +33,15 @@ export class PacienteDetalhesComponent {
     this.pacienteService.getPaciente(id).subscribe((res: Paciente) => {
       this.paciente! = res;
     })
+  }
+
+  editarPaciente(paciente: Paciente) {
+    this.router.navigate(['pacientes/editar', paciente.id])
+  }
+
+  deletarPaciente(paciente: Paciente) {
+    this.pacienteService.deletarPaciente(paciente.id).subscribe();
+    this.router.navigate(['pacientes']);
   }
 
 }

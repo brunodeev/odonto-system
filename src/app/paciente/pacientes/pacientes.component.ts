@@ -25,8 +25,10 @@ export class PacientesComponent {
   }
 
   constructor(
-    private pacienteService: PacienteService,
-    private router: Router) {}
+    private pacienteService: PacienteService) {
+      this.pacienteService.getPacientes().subscribe((res) => this.pacientes = res);
+      this.pacienteService.getPacientes().subscribe((res) => this.pacientesFiltrados = res);
+    }
 
   ngOnInit() {
     this.pacienteService.getPacientes().subscribe((res) => this.pacientes = res);
